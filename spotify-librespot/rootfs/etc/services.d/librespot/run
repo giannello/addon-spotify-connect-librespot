@@ -1,0 +1,62 @@
+#!/usr/bin/with-contenv bashio
+# ==============================================================================
+# Home Assistant Community Add-on: Spotify Connect
+# Runs spotifyd
+# ==============================================================================
+declare -a options
+
+bashio::log.info 'Starting the librespot daemon...'
+
+# Are we running in debug mode?
+if bashio::debug; then
+  options+=(--verbose)
+fi
+
+if bashio::config.has_value 'name'; then
+  options+=(--name "$(bashio::config 'name')")
+else
+  options+=(--name "Home Assistant")
+fi
+
+if bashio::config.has_value 'bitrate'; then
+  options+=(--bitrate $(bashio::config 'bitrate'))
+fi
+
+if bashio::config.has_value 'cache_dir'; then
+  options+=(--cache "$(bashio::config 'cache_dir')")
+else
+  options+=(--disable-audio-cache)
+fi
+
+if bashio::config.has_value 'device_type'; then
+  options+=(--device-type $(bashio::config 'device_type'))
+fi
+
+if bashio::config.has_value 'disable_gapless' && bashio::config 'disable_gapless'; then
+  options+=(--disable-gapless)
+fi
+
+if bashio::config.has_value 'initial_volume'; then
+  options+=(--initial-volume $(bashio::config 'initial_volume'))
+fi
+
+if bashio::config.has_value 'normalize_volume' && bashio::config 'normalize_volume'; then
+  options+=(--enable-volume-normalization)
+fi
+
+if bashio::config.has_value 'username'; then
+  bashio::config.require.password
+  options+=(--username $(bashio::config 'username'))
+  options+=(--password $(bashio::config 'password'))
+fi
+
+if bashio::config.has_value 'proxy'; then
+  options+=(--proxy $(bashio::config 'proxy'))
+fi
+
+if bashio::config.has_value 'volume_control'; then
+  options+=(--volume-ctrl $(bashio::config 'volume_control'))
+fi
+
+# Run librespot
+exec librespot "${options[@]}"

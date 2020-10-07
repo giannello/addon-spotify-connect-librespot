@@ -1,0 +1,30 @@
+{
+  "name": "Spotify Connect (librespot)",
+  "version": "dev",
+  "slug": "spotify-librespot",
+  "description": "Play Spotify music on your Home Assistant device",
+  "url": "https://github.com/giannello/addon-spotify-connect-librespot",
+  "startup": "services",
+  "arch": ["aarch64", "amd64", "armv7", "i386"],
+  "map": ["config"],
+  "boot": "auto",
+  "hassio_api": true,
+  "hassio_role": "default",
+  "host_network": true,
+  "audio": true,
+  "options": {
+  },
+  "schema": {
+    "name": "match(^[A-Za-z0-9-. ]+$)?",
+    "bitrate": "list(96|160|320)?",
+    "cache_dir": "str?",
+    "device_type": "list(computer|tables|smartphone|speaker|tv|avr|stb|audiodongle|unknown)?",
+    "disable_gapless": "bool?",
+    "initial_volume": "int(0,100)?",
+    "normalize_volume": "bool?",
+    "password": "password?",
+    "proxy": "url?",
+    "username": "str?",
+    "volume_control": "list(linear|log|fixed)?"
+  }
+}
