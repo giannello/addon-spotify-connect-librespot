@@ -12,6 +12,7 @@
   "hassio_role": "default",
   "host_network": true,
   "audio": true,
+  "image": "giannello/addon-spotify-connect-librespot",
   "options": {
   },
   "schema": {
