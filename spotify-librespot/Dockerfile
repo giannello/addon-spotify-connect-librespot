@@ -6,7 +6,7 @@ FROM ${BUILD_FROM}
 # hadolint ignore=DL3003
 RUN \
     apk add --no-cache git cargo \
-        pkgconf alsa-lib-dev \
+        pkgconf alsa-lib-dev alsa-plugins-pulse \
     \
     && git clone --branch "v0.1.3" --depth=1 \
         https://github.com/librespot-org/librespot.git /tmp/librespot \
