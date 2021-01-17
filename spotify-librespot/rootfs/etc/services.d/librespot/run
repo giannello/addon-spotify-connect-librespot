@@ -28,6 +28,10 @@ else
   options+=(--disable-audio-cache)
 fi
 
+if bashio::config.has_value 'create_entity' && bashio::config 'create_entity'; then
+  options+=(--onevent "sh /usr/local/bin/ha.sh")
+fi
+
 if bashio::config.has_value 'device_type'; then
   options+=(--device-type $(bashio::config 'device_type'))
 fi

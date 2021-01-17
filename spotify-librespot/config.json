@@ -20,6 +20,7 @@
     "name": "match(^[A-Za-z0-9-. ]+$)?",
     "bitrate": "list(96|160|320)?",
     "cache_dir": "str?",
+    "create_entity": "bool?",
     "device_type": "list(computer|tables|smartphone|speaker|tv|avr|stb|audiodongle|unknown)?",
     "disable_gapless": "bool?",
     "initial_volume": "int(0,100)?",

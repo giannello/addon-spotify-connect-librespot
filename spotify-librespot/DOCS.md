@@ -30,6 +30,7 @@ Example add-on configuration:
 ```yaml
 name: Home Assistant
 bitrate: 320
+create_entity: True
 initial_volume: 50
 volume_control: linear
 ```
@@ -49,6 +50,10 @@ The bitrate Spotify should use. The higher, the better the sound quality,
 however, the add-on consumes more data.
 
 Valid values: `96`, `160` (default) or `320`.
+
+### Option: `create_entity`
+
+Create an entity that exposes the status of `librespot` to Home Assistant.
 
 ### Option: `device_type`
 
