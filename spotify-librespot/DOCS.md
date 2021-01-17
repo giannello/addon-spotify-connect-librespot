@@ -42,7 +42,7 @@ volume_control: linear
 The name of your device (the Spotify Connect target), as shown on
 the official Spotify clients.
 
-**Note**: _May only contain letters, numbers, hyphens (`-`), dots (`.`) and spaces.
+**Note**: _May only contain letters, numbers, hyphens (`-`), dots (`.`) and spaces._
 
 ### Option: `bitrate`
 
