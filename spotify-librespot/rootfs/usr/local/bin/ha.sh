@@ -1,11 +1,11 @@
 case ${PLAYER_EVENT} in
-change)
+change|changed)
   STATE="playing"
   ;;
-start)
+start|started)
   STATE="playing"
   ;;
-stop)
+stop|stopped)
   STATE="idle"
   ;;
 playing)
