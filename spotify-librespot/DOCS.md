@@ -72,9 +72,21 @@ Initial volume, set when the Spotify client connects to this instance.
 
 Valid values: any integer from 0 to 100
 
-### Option: `normalize_volume`
+### Option: `normalise_volume`
 
-Enable volume normalization.
+Enable volume normalisation.
+
+### Option: `normalise_by`
+
+Specify whether to normalise by album or by track.
+
+Valid values: `album` (default), `track`.
+
+### Option: `normalise_pregain`
+
+Specify the pregain (dB) applied by volume normalisation.
+
+Valid values: any float.
 
 ### Option: `username`
 

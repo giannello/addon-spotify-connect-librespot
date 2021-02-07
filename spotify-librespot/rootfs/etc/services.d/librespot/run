@@ -44,8 +44,16 @@ if bashio::config.has_value 'initial_volume'; then
   options+=(--initial-volume $(bashio::config 'initial_volume'))
 fi
 
-if bashio::config.has_value 'normalize_volume' && bashio::config 'normalize_volume'; then
-  options+=(--enable-volume-normalization)
+if bashio::config.has_value 'normalise_volume' && bashio::config 'normalise_volume'; then
+  options+=(--enable-volume-normalisation)
+
+  if bashio::config.has_value 'normalise_by'; then
+    options+=(--normalisation-gain-type $(bashio::config 'normalise_by'))
+  fi
+
+  if bashio::config.has_value 'normalise_pregain'; then
+    options+=(--normalisation-pregain "$(bashio::config 'normalise_pregain')")
+  fi
 fi
 
 if bashio::config.has_value 'username'; then
