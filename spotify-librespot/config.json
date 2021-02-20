@@ -15,21 +15,22 @@
   "audio": true,
   "image": "giannello/addon-spotify-connect-librespot",
   "options": {
+    "name": "homeassistant",
+    "bitrate": "160",
+    "initial_volume": 100,
+    "volume_control": "linear",
+    "device_type": "speaker"
   },
   "schema": {
     "name": "match(^[A-Za-z0-9-. ]+$)?",
     "bitrate": "list(96|160|320)?",
-    "cache_dir": "str?",
+    "initial_volume": "int(0,100)?",
+    "volume_control": "list(linear|log|fixed)?",
     "create_entity": "bool?",
     "device_type": "list(computer|tables|smartphone|speaker|tv|avr|stb|audiodongle|unknown)?",
     "disable_gapless": "bool?",
-    "initial_volume": "int(0,100)?",
     "normalise_volume": "bool?",
     "normalise_by": "list(album|track)?",
-    "normalise_pregain": "float?",
-    "password": "password?",
-    "proxy": "url?",
-    "username": "str?",
-    "volume_control": "list(linear|log|fixed)?"
+    "normalise_pregain": "float?"
   }
 }
