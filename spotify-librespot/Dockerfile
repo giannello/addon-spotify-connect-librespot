@@ -4,7 +4,7 @@ FROM ${BUILD_FROM}
 
 # Setup base
 # hadolint ignore=DL3003
-ARG LIBRESPOT_VERSION=0.1.3
+ARG LIBRESPOT_VERSION=0.1.6
 RUN \
     apk add --no-cache cargo pkgconf alsa-lib-dev alsa-plugins-pulse \
     && cargo install --root /usr/local --bin librespot --version ${LIBRESPOT_VERSION} -- librespot \
